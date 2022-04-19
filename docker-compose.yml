@@ -1,0 +1,15 @@
+version: '3'
+services:
+  next_app:
+    container_name: next_app
+    tty: true
+    build:
+      context: ./next
+      dockerfile: Dockerfile
+    volumes:
+      - ./next:/usr/src/app 
+    # command: sh -c "cd nextjs-testing && npm run dev"
+    ports:
+      - 10000:10000
+    environment:
+          - CHOKIDAR_USEPOLLING: 1
